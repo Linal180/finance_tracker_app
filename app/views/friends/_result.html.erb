@@ -11,11 +11,11 @@
                     <tr>
                         <td><strong> Name: </strong> <%= friend.full_name%></td>
                         <td><strong> Email: </strong> <%= friend.email %></td>
-                        <td><strong> Actions: </strong> <%= link_to "View Profile", '#', 
+                        <td><strong> Actions: </strong> <%= link_to "View Profile", user_path(friend), 
                                                         class: 'btn btn-sm btn-success' %>
                             <% if current_user.not_friend_with?(friend.id) %>
-                                <%= link_to 'Follow Friends?', '#',
-                                                class: 'btn btn btn-success' %>
+                                <%= link_to 'Follow Friends?',friendship_index_path(friend: friend),
+                                                class: 'btn btn-sm btn-success', method: :post %>
     
                             <% else %>
                                 <span class="badge badge-secondary">Already Friends</span>
